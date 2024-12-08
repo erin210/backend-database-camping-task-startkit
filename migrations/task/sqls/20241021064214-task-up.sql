@@ -215,36 +215,3 @@ VALUES (
     );
 
 
--- ████████  █████   █    █████ 
---   █ █   ██    █  █     █     
---   █ █████ ███ ███      ████  
---   █ █   █    ██  █         █ 
---   █ █   █████ █   █    ████  
--- ===================== ====================
-
--- 5. 客戶預約與授課 COURSE_BOOKING
--- 5-1. 新增：請在 `COURSE_BOOKING` 新增兩筆資料：
-    -- 1. 第一筆：`王小明`預約 `李燕容` 的課程
-        -- 1. 預約人設為`王小明`
-        -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
-        -- 3. 狀態`status` 設定為即將授課
-
-INSERT INTO "COURSE_BOOKING" (user_id, course_id, booking_at, status)
-VALUES(
-    (SELECT id FROM "USER" WHERE email='wXlTq@hexschooltest.io'),
-    (SELECT id FROM "COURSE" WHERE user_id=(SELECT id FROM "USER" WHERE email='lee2000@hexschooltest.io')),
-    '2024-11-24 16:00:00',
-    '即將授課'
-    );
--- 2. 新增： `好野人` 預約 `李燕容` 的課程
-    -- 1. 預約人設為 `好野人`
-    -- 2. 預約時間`booking_at` 設為2024-11-24 16:00:00
-    -- 3. 狀態`status` 設定為即將授課
-INSERT INTO "COURSE_BOOKING" (user_id, course_id, booking_at, status)
-VALUES(
-    (SELECT id FROM "USER" WHERE email='richman@hexschooltest.io'),
-    (SELECT id FROM "COURSE" WHERE user_id=(SELECT id FROM "USER" WHERE email='lee2000@hexschooltest.io')),
-    '2024-11-24 16:00:00',
-    '即將授課'
-    );       
-
